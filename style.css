@@ -1,0 +1,156 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #f0db4f;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 120px;
+    height: 120px;
+    background-color: #333;
+    border: 2px solid #f0db4f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #f0db4f;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cell:hover {
+    background-color: #f0db4f;
+    color: #333;
+    transform: scale(1.1);
+}
+
+#message {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #f0db4f;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #f0db4f;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #ffcc00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.watermark {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #888;
+    opacity: 0.7;
+}
+
+/* Popup Modal */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    border-radius: 15px;
+    border-image: linear-gradient(45deg, #f0db4f, #ffcc00) 1;
+    border-image-slice: 1;
+    animation: glow 1.5s infinite;
+}
+
+/* Glowing border animation */
+@keyframes glow {
+    0% {
+        border-color: #f0db4f;
+        box-shadow: 0 0 15px #f0db4f, 0 0 30px #f0db4f, 0 0 45px #f0db4f, 0 0 60px #f0db4f;
+    }
+    100% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00, 0 0 45px #ffcc00, 0 0 60px #ffcc00;
+    }
+}
+
+.popup-content h2 {
+    color: #333;
+    font-size: 2rem;
+}
+
+#popup-close {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f0db4f;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+#popup-close:hover {
+    background-color: #ffcc00;
+}
+
+/* Animation for popup fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
